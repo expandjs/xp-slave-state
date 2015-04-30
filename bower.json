@@ -1,8 +1,8 @@
 {
   "name": "xp-slave-state",
   "license": "BSD-3-Clause",
-  "version": "0.8.4",
-  "description": "This element is used to add slave capabilities on the context element.",
+  "version": "0.8.5",
+  "description": "A custom element used to add slave capabilities, for a master-slave pattern, to a context element",
   "homepage": "http://www.expandjs.com/elements/xp-slave-state",
   "authors": [
     "Giuliano Rullo <g.rullo@expandjs.com>",
