@@ -36,7 +36,7 @@ It should be used in conjunction with xp-master-state.
              *
              * @event xp-slave
              * @param {Element} firer
-             * @param {Element} slave
+             * @param {Function} coupler
              * @param {string} masterSelector
              * @param {string} masterTag
              * @param {boolean} isAttached
@@ -133,13 +133,13 @@ It should be used in conjunction with xp-master-state.
             // LISTENER
             attached: function () {
                 var self = this;
-                self.context.asyncFire('xp-slave', {firer: self.context, slave: self, masterSelector: self.masterSelector, masterTag: self.masterTag, isAttached: true});
+                self.context.asyncFire('xp-slave', {firer: self.context, coupler: self.couple.bind(self), masterSelector: self.masterSelector, masterTag: self.masterTag, isAttached: true});
             },
 
             // LISTENER
             detached: function () {
                 var self = this;
-                self.context.asyncFire('xp-slave', {firer: self.context, slave: self, masterSelector: self.masterSelector, masterTag: self.masterTag, isAttached: false});
+                self.context.asyncFire('xp-slave', {firer: self.context, coupler: self.decouple.bind(self), masterSelector: self.masterSelector, masterTag: self.masterTag, isAttached: false});
             }
         });
     </script>
