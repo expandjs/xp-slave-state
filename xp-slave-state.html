@@ -49,32 +49,28 @@ It should be used in conjunction with xp-master-state.
              * Couples the slave to a master.
              *
              * @method couple
-             * @param {Array} slaves
              * @param {Element} master
-             * @returns {Element}
+             * @returns {Element | undefined}
              * @private
              */
-            couple: function (slaves, master) {
-                var self = this, index = !self.master ? slaves.indexOf(self.context) : false;
-                if (index === false) { return; } else if (index < 0) { slaves.push(self.context); }
-                self.master = master;
-                return self;
+            couple: function (master) {
+                var self = this;
+                if (!self.master) { self.master = master; }
+                if (self.master === master) { return master; }
             },
 
             /**
              * Decouples the slave from its master.
              *
              * @method decouple
-             * @param {Array} slaves
              * @param {Element} master
-             * @returns {Element}
+             * @returns {Element | undefined}
              * @private
              */
-            decouple: function (slaves, master) {
-                var self = this, index = master === self.master ? slaves.indexOf(self.context) : false;
-                if (index === false) { return; } else if (index >= 0) { slaves.splice(index, 1); }
-                self.master = null;
-                return self;
+            decouple: function (master) {
+                var self = this;
+                if (self.master === master) { self.master = null; }
+                if (!self.master) { return master; }
             },
 
             /*********************************************************************/
