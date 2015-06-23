@@ -1,3 +1,3 @@
-# xp-slave-state
+# xp-slave
 
-See the [`documentation page`](http://expandjs.com/elements/xp-slave-state) for more information.
+See the [`documentation page`](http://expandjs.com/elements/xp-slave) for more information.
