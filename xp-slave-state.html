@@ -22,7 +22,7 @@ It should be used in conjunction with xp-master-state.
 @extends template
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.5
+@dependency expandjs ExpandJS/expandjs#0.9.6
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -136,8 +136,7 @@ It should be used in conjunction with xp-master-state.
         // LISTENER
         detached: function () {
             var self = this;
-            if (!self.master) { return; }
-            XP.delay(function () { self.master.fire('xp-slave-state', {firer: self.domHost, coupler: self._decouple.bind(self), masterSelector: self.masterSelector, masterTag: self.masterTag, isAttached: false}); });
+            if (self.master) { XP.delay(function () { self.master.fire('xp-slave-state', {firer: self.domHost, coupler: self._decouple.bind(self), masterSelector: self.masterSelector, masterTag: self.masterTag, isAttached: false}); }); }
         }
     });
 </script>
